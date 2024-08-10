@@ -1,7 +1,7 @@
 import './css/CharSettings.css'
 import {useRef, useState} from "react";
 import {useAppDispatch} from "../storage/hooks/hooks";
-import {addChar, removeChar} from "../storage/roundsSlice";
+import {addChar, removeChar} from "../storage/slice/roundsSlice";
 
 interface LocationPos {
     x: number,

@@ -1,4 +1,4 @@
-import "./Suspense.css"
+import "./css/Suspense.css"
 
 export default function SuspenseBlock() {
     return(

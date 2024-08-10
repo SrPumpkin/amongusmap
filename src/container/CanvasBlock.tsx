@@ -7,8 +7,8 @@ import {Canvas, useLoader} from "@react-three/fiber";
 import CharMarks from "../component/CharsMarks";
 
 import {useAppDispatch, useAppSelector} from "../storage/hooks/hooks";
-import {updateChar} from "../storage/roundsSlice";
-import {updateChosenChar} from "../storage/globalSlice";
+import {updateChar} from "../storage/slice/roundsSlice";
+import {updateChosenChar} from "../storage/slice/globalSlice";
 
 export default function CanvasBlock() {
     const defaultChars = useAppSelector(state => state.characters)

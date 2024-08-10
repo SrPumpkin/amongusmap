@@ -4,7 +4,7 @@ import React, { Suspense } from 'react'
 import Map from "./container/Map"
 import SuspenseBlock from "./container/Suspens"
 import {useAppDispatch} from "./storage/hooks/hooks"
-import {updateSettings} from "./storage/settingsSlice"
+import {updateSettings} from "./storage/slice/settingsSlice"
 
 import './App.css'
 

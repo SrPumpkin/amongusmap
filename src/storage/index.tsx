@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
-import charSlice from "./charSlice";
-import roundsSlice from "./roundsSlice";
-import settingsSlice from "./settingsSlice";
-import globalSlice from "./globalSlice";
+import charSlice from "./slice/charSlice";
+import roundsSlice from "./slice/roundsSlice";
+import settingsSlice from "./slice/settingsSlice";
+import globalSlice from "./slice/globalSlice";
 
 export const storage = configureStore({
     reducer: {

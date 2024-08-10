@@ -3,8 +3,8 @@ import {useState} from "react";
 
 import SuspectBtn from "./SuspectBtn";
 import {useAppDispatch} from "../storage/hooks/hooks";
-import {updateChar} from "../storage/roundsSlice";
-import {updateChosenChar} from "../storage/globalSlice"
+import {updateChar} from "../storage/slice/roundsSlice";
+import {updateChosenChar} from "../storage/slice/globalSlice"
 
 interface LocationPos {
     x: number,

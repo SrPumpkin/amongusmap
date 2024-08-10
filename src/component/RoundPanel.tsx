@@ -4,8 +4,8 @@ import React, {useState} from "react";
 
 import RoundBtn from "./RoundBtn";
 import {useAppDispatch} from "../storage/hooks/hooks";
-import {addRound} from "../storage/roundsSlice";
-import {updateRound} from "../storage/globalSlice";
+import {addRound} from "../storage/slice/roundsSlice";
+import {updateRound} from "../storage/slice/globalSlice";
 
 interface Props {
     isOpenClass: boolean

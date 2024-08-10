@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "./index"
-import Char from "../component/Char";
+import type { RootState } from "../index"
+import Char from "../../component/Char";
 
 interface LocationPos {
     x: number,
