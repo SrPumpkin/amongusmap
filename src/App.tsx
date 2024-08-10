@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import React, { Suspense } from 'react'
+
+import Map from "./container/Map"
+import SuspenseBlock from "./container/Suspens"
+import {useAppDispatch} from "./storage/hooks/hooks"
+import {updateSettings} from "./storage/settingsSlice"
+
+import './App.css'
 
 function App() {
+  window.addEventListener("resize", handleResize)
+
+  const dispatch = useAppDispatch()
+
+  function handleResize() {
+    dispatch(updateSettings({
+      width: window.innerWidth,
+      height: window.innerHeight
+    }))
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+        <Suspense fallback={<SuspenseBlock />}>
+          <Routes>
+            <Route path="/" element={<Map/>}></Route>
+            <Route path="/map" element={<Map/>}></Route>
+          </Routes>
+        </Suspense>
+      </Router>
+    </>
   );
 }
 

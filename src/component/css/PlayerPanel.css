@@ -1,0 +1,50 @@
+.players {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 96dvh;
+    width: 10dvw;
+    margin: 1%;
+    border: var(--border) var(--border-out) solid;
+    border-radius: 15px;
+    background: #a7cee8;
+    transform: translateX(-150%);
+    transition: transform .5s ease;
+
+    &.active {
+         transform: translateX(0%);
+    }
+
+    .players-block {
+        display: flex;
+        gap: 2dvh;
+        flex-direction: column;
+        align-items: center;
+        padding: 2dvh 0;
+        overflow-y: scroll;
+        height: 100%;
+        border: #909aa6 ridge var(--border-in);
+        border-radius: var(--border-in);
+    }
+
+    .blind {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: calc(100% - var(--border-in) * 2);
+        width: calc(100% - var(--border-in) * 2);
+        margin: 10px;
+        pointer-events: none;
+        opacity: .2;
+        background: linear-gradient(33deg, rgba(167,206,232,1) 13%,
+        rgba(255,255,255,1) 13%, rgba(255,255,255,1) 17%, rgba(255,255,255,1) 18%,
+        rgba(167,206,232,1) 18%, rgba(167,206,232,1) 21%, rgba(255,255,255,1) 21%,
+        rgba(255,255,255,1) 22%, rgba(167,206,232,1) 22%, rgba(167,206,232,1) 38%,
+        rgba(255,255,255,1) 39%, rgba(255,255,255,1) 45%, rgba(167,206,232,1) 45%,
+        rgba(167,206,232,1) 60%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 67%,
+        rgba(167,206,232,1) 67%, rgba(167,206,232,1) 71%, rgba(255,255,255,1) 71%,
+        rgba(255,255,255,1) 72%, rgba(167,206,232,1) 72%, rgba(167,206,232,1) 86%,
+        rgba(255,255,255,1) 86%, rgba(255,255,255,1) 88%, rgba(167,206,232,1) 88%,
+        rgba(167,206,232,1) 100%);
+    }
+}

@@ -1,0 +1,15 @@
+.suspense {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100dvw;
+    height: 100dvh;
+    background: black;
+
+    span {
+        font-family: "Arial", serif;
+        font-size: 20dvh;
+        color: white;
+    }
+}

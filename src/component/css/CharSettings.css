@@ -1,0 +1,79 @@
+
+.char-settings[data-color=Lime] .color {fill: #03f907;}
+.char-settings[data-color=Red] .color {fill: #c71110;}
+.char-settings[data-color=Blue] .color {fill: #1410cc;}
+.char-settings[data-color=Green] .color {fill: #25751e;}
+.char-settings[data-color=Pink] .color {fill: #db03db;}
+.char-settings[data-color=Orange] .color {fill: #ff7b04;}
+.char-settings[data-color=Yellow] .color {fill: #f4f90c;}
+.char-settings[data-color=Black] .color {fill: #282828;}
+.char-settings[data-color=White] .color {fill: #d8e1f0;}
+.char-settings[data-color=Purple] .color {fill: #8e10cc;}
+.char-settings[data-color=Brown] .color {fill: #88532d;}
+.char-settings[data-color=Cyan] .color {fill: #12c6c7;}
+.char-settings[data-color=Maroon] .color {fill: #5f1d2e;}
+.char-settings[data-color=Rose] .color {fill: #ecc0d3;}
+.char-settings[data-color=Banana] .color {fill: #f0e7a8;}
+.char-settings[data-color=Gray] .color {fill: #758593;}
+.char-settings[data-color=Tan] .color {fill: #918877;}
+.char-settings[data-color=Coral] .color {fill: #d76464;}
+
+.char-settings {
+    --HoverColor: var(--border);
+    --HoverBorder: var(--btn-shadow);
+    --HoverBackground: var(--bgd-block);
+    width: 100%;
+    height: fit-content;
+    border: none;
+    border-radius: 10px;
+    background: var(--HoverBackground);
+    box-shadow: var(--HoverBorder) 4px 4px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:hover {
+         --HoverColor: var(--hover-border);
+         --HoverBorder: var(--hover-border);
+         --HoverBackground: var(--hover-bgd-block);
+    }
+
+    &.checked {
+         background: var(--hover-bgd-block);
+         box-shadow: var(--hover-border) 0px 0px;
+    }
+
+    .char-icon {
+
+        & svg {
+              width: 100%;
+              padding: 20px;
+        }
+
+        .dark {
+            filter: brightness(0.6);
+        }
+    }
+}
+
+.cls-3, .cls-6, .bone {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+}
+.cls-3 {stroke-width: 20px;}
+.cls-4 {fill: #94c9db;}
+.cls-5 {fill: #4a646d;}
+.cls-6 {stroke-width: 15px;}
+.cls-7 {fill: #fff;}
+
+@media (max-width: 1100px)  {
+    .char-settings {
+        & .char-icon {
+            & svg {
+                  width: 100%;
+                  padding: 1dvw;
+            }
+        }
+    }
+}

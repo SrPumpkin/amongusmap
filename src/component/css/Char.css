@@ -1,0 +1,266 @@
+
+.char[data-color=Lime] .color {fill: #03f907;}
+.char[data-color=Red] .color {fill: #c71110;}
+.char[data-color=Blue] .color {fill: #1410cc;}
+.char[data-color=Green] .color {fill: #25751e;}
+.char[data-color=Pink] .color {fill: #db03db;}
+.char[data-color=Orange] .color {fill: #ff7b04;}
+.char[data-color=Yellow] .color {fill: #f4f90c;}
+.char[data-color=Black] .color {fill: #282828;}
+.char[data-color=White] .color {fill: #d8e1f0;}
+.char[data-color=Purple] .color {fill: #8e10cc;}
+.char[data-color=Brown] .color {fill: #88532d;}
+.char[data-color=Cyan] .color {fill: #12c6c7;}
+.char[data-color=Maroon] .color {fill: #5f1d2e;}
+.char[data-color=Rose] .color {fill: #ecc0d3;}
+.char[data-color=Banana] .color {fill: #f0e7a8;}
+.char[data-color=Gray] .color {fill: #758593;}
+.char[data-color=Tan] .color {fill: #918877;}
+.char[data-color=Coral] .color {fill: #d76464;}
+
+.cls-3, .cls-6, .bone {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+}
+.cls-3 {stroke-width: 20px;}
+.cls-4 {fill: #94c9db;}
+.cls-5 {fill: #4a646d;}
+.cls-6 {stroke-width: 15px;}
+.cls-7 {fill: #fff;}
+
+
+
+svg {
+    overflow: unset;
+
+    .blood {
+        fill: #7d1e1e;
+    }
+    .white {
+        fill: #fff;
+    }
+    .bone {
+        stroke-width: 1px;
+    }
+
+    &.kill {
+        .cls-3 {stroke-width: 10px;}
+    }
+}
+
+.char {
+    --nav-btn-hover: #feffcb;
+    --nav-icon-hover: #ffc801;
+    --HoverColor: var(--border);
+    --HoverBorder: var(--btn-shadow);
+    --HoverBackground: var(--bgd-block);
+    position: relative;
+    width: 75%;
+    border: none;
+    border-radius: 10px;
+    background: var(--HoverBackground);
+    box-shadow: var(--HoverBorder) 4px 4px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    &:hover {
+        --HoverColor: var(--hover-border);
+        --HoverBorder: var(--hover-border);
+        --HoverBackground: var(--hover-bgd-block);
+    }
+
+    &.suspect {
+         --HoverColor: #950303;
+         --HoverBorder: #950303;
+         --HoverBackground: #ffcbcd;
+    }
+
+    &.killed {
+        filter: brightness(.5);
+
+        .killed {
+            fill: black;
+        }
+    }
+
+    &.exile {
+        filter: brightness(.5);
+
+        .exile {
+            fill: black;
+        }
+    }
+
+    & svg.kill {
+        display: none;
+    }
+
+    &.killed svg.kill {
+         display: block;
+    }
+
+    &.killed svg.standart {
+        display: none;
+    }
+
+    .char-icon {
+
+        & svg {
+            width: 100%;
+            padding: 20px;
+        }
+        .dark {
+            filter: brightness(0.6);
+        }
+    }
+
+    .char-nav {
+        display: block;
+        top: 85%;
+        left: 0;
+        max-height: 0px;
+        width: 100%;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+
+        &.active {
+            max-height: calc( (3em + 20px + 2px) * 5 );
+        }
+
+        & button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            border-top: var(--HoverBorder) solid 2px;
+            color: var(--HoverColor);
+            fill: var(--HoverColor);
+            cursor: pointer;
+            transition: all .2s ease;
+
+            &:after {
+                transition: all .1s ease;
+            }
+        }
+
+        .sus_cancel {
+            max-height: 0px;
+            overflow: hidden;
+            border-top: var(--HoverBorder) solid 0px;
+            fill: var(--nav-btn-hover);
+            transition: max-height 0.2s ease, border-top 0s easy .5s;
+
+            &.active {
+                 max-height: calc( (3em + 20px + 2px) );
+                 border-top: var(--HoverBorder) solid 2px;
+                 padding: .5em 0;
+            }
+        }
+
+        .marker {
+            padding: .8em 0;
+
+            & svg {
+                  width: 25%;
+            }
+
+            &:hover {
+                 background: var(--nav-btn-hover);
+                 fill: var(--nav-icon-hover);
+            }
+            &.marked {
+                 background: var(--nav-btn-hover);
+                 fill: var(--nav-icon-hover);
+            }
+            &.active {
+                 fill: var(--nav-icon-hover);
+            }
+        }
+        .sus {
+            font-family: Arial;
+            font-weight: bold;
+            padding: .8em 0;
+
+            & svg {
+                  width: 25%;
+              }
+
+            &:hover {
+                 background: var(--nav-btn-hover);
+                 fill: var(--nav-icon-hover);
+                 color: var(--nav-icon-hover);
+             }
+
+            span {
+                font-size: 2em;
+                margin: 0 .2em;
+            }
+        }
+        .sus_cancel {
+            --nav-btn-hover: #ffcbcd;
+            --nav-icon-hover: #950303;
+            background: var(--HoverColor);
+
+            & svg {
+                  width: 30%;
+            }
+        }
+        .exile {
+            padding: .5em 0;
+
+            & svg {
+                width: 30%;
+            }
+
+            &:hover {
+                background: var(--nav-btn-hover);
+                fill: var(--nav-icon-hover);
+            }
+        }
+
+        .killed {
+            padding: .5em 0;
+
+            & svg {
+                width: 30%;
+            }
+
+            &:hover {
+                 background: var(--nav-btn-hover);
+                 fill: var(--nav-icon-hover);
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px)  {
+    .char {
+        & button:after {
+            font-size: 2em;
+        }
+        & .char-icon {
+            & svg {
+                  width: 100%;
+                  padding: 1dvw;
+            }
+        }
+        & .char-nav {
+            & .marker {
+                &:after {
+                     font-size: 2em;
+                }
+            }
+            & .sus {
+                &:after {
+                     font-size: 2em;
+                }
+
+                span {
+                    font-size: 1.5em;
+                }
+            }
+        }
+    }
+}

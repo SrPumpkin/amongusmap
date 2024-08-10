@@ -1,0 +1,57 @@
+
+
+.menu-block {
+    position: fixed;
+    top: 1%;
+    left: 50%;
+    translate: -50% 0%;
+    display: flex;
+    gap: 5%;
+
+    .btn {
+
+        & button {
+            width: 3dvw;
+            height: 3dvw;
+            text-align: center;
+            color: var(--border);
+            border: var(--border) var(--border-out) solid;
+            border-radius: 100%;
+            background: var(--bgd-block);
+            font-family: FontAwesome;
+            font-style: normal;
+            font-size: 2dvw;
+            cursor: pointer;
+            transition: all .2s ease;
+
+            &:hover, &.active {
+                color: var(--hover-border);
+                border: var(--hover-border) var(--border-out) solid;
+                background: var(--hover-bgd-block);
+            }
+        }
+        .round:after {
+            content: '\f0f3';
+        }
+        .player:after {
+            content: '\f2c0';
+        }
+        .menu:after {
+            content: '\f0c9';
+        }
+        .refresh:after {
+            content: '\f021';
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu-block {
+        & .btn {
+            & button {
+                  width: 3em;
+                  height: 3em;
+            }
+        }
+    }
+}
