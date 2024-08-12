@@ -28,6 +28,7 @@ export default function Menu({tabletOpen, playerOpen, roundOpen}: Props) {
     }
 
     const handleRefresh = () => {
+        window.localStorage.clear()
         // eslint-disable-next-line no-restricted-globals
         location.reload();
     }

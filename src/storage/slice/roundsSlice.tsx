@@ -26,9 +26,14 @@ interface Characters {
     characters: Array<Char>
 }
 
-const initialState: Array<Characters> = [
+let initialState: Array<Characters> = [
     {characters: []}
 ]
+
+if (window.localStorage.getItem('rounds') !== null) {
+    // @ts-ignore
+    initialState = JSON.parse(window.localStorage.getItem('rounds'))
+}
 
 export const roundsSlice = createSlice({
     name: "rounds",
@@ -39,6 +44,8 @@ export const roundsSlice = createSlice({
                 round.characters.push(data.payload)
                 return round;
             })
+
+            window.localStorage.setItem("rounds", JSON.stringify(state))
         },
         removeChar: (state, data) => {
             state.map((round, roundIndex) => {
@@ -50,6 +57,8 @@ export const roundsSlice = createSlice({
 
                 if (check !== null) round.characters.splice(check, 1)
             })
+
+            window.localStorage.setItem("rounds", JSON.stringify(state))
         },
         updateChar: (state, data) => {
             state[data.payload.round].characters.map((char: any) => {
@@ -57,6 +66,8 @@ export const roundsSlice = createSlice({
                     char[data.payload.type] = data.payload.subject
                 }
             })
+
+            window.localStorage.setItem("rounds", JSON.stringify(state))
         },
         addRound: (state) => {
             let newCharacters = state[state.length - 1].characters.map((char: any) => {
@@ -74,11 +85,18 @@ export const roundsSlice = createSlice({
             })
 
             state.push({characters: newCharacters})
-        }
+
+            window.localStorage.setItem("rounds", JSON.stringify(state))
+        },
     }
 })
 
-export const { addChar, addRound, removeChar, updateChar } = roundsSlice.actions
+export const {
+    addChar,
+    addRound,
+    removeChar,
+    updateChar,
+} = roundsSlice.actions
 
 export const selectRounds = (state: RootState) => state.characters
 export default roundsSlice.reducer

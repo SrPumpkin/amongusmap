@@ -20,7 +20,7 @@ export default function CanvasBlock() {
 
     const dispatch = useAppDispatch()
 
-    const mapTexture = useLoader(TextureLoader, "./src/img/test.png")
+    const mapTexture = useLoader(TextureLoader, "./src/img/the-skeld.png")
     const mapSize = {
         width: mapTexture.source.data.width,
         height: mapTexture.source.data.height,
