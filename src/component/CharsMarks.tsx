@@ -42,7 +42,10 @@ export default function CharMarks({char, round}: Props) {
         currentChar = c
     })
 
-    const charTexture = useLoader(TextureLoader, `./src/svg/${char.color}.svg`)
+    const curTexture = currentChar.killed ? "K" + char.color : char.color
+    const curOpacity = currentChar.exile ? 0.5 : 1.0
+
+    const charTexture = useLoader(TextureLoader, `./src/svg/chars/${curTexture}.svg`)
     const mapSize = {
         width: charTexture.source.data.width,
         height: charTexture.source.data.height,
@@ -53,7 +56,7 @@ export default function CharMarks({char, round}: Props) {
         <>
             <mesh position={[currentChar.onMap.pos.x, -currentChar.onMap.pos.y, currentChar.onMap.pos.z]}>
                 <planeGeometry args={[177 * mapSize.scale, 150 * mapSize.scale]}/>
-                <meshBasicMaterial map={charTexture} side={DoubleSide} transparent={true}/>
+                <meshBasicMaterial map={charTexture} side={DoubleSide} opacity={curOpacity} transparent={true}/>
             </mesh>
         </>
     )

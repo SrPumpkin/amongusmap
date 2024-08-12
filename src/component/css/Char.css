@@ -81,7 +81,7 @@ svg {
         filter: brightness(.5);
 
         .killed {
-            fill: black;
+            fill: var(--nav-icon-hover);
         }
     }
 
@@ -89,7 +89,7 @@ svg {
         filter: brightness(.5);
 
         .exile {
-            fill: black;
+            fill: var(--nav-icon-hover);
         }
     }
 
