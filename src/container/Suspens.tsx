@@ -4,6 +4,7 @@ export default function SuspenseBlock() {
     return(
         <div className="suspense">
             <span>Loading...</span>
+            <div className="blind"></div>
         </div>
     )
 }

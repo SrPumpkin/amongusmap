@@ -1,15 +1,32 @@
 .suspense {
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100dvw;
     height: 100dvh;
-    background: black;
+    background: #a7cee8;
+    color: var(--border);
+    z-index: 1000;
 
     span {
-        font-family: "Arial", serif;
-        font-size: 20dvh;
-        color: white;
+        font-size: 9dvw;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .blind {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        pointer-events: none;
+        opacity: .2;
+        background: linear-gradient(33deg, rgba(167, 206, 232, 1) 13%, rgba(255, 255, 255, 1) 13%, rgba(255, 255, 255, 1) 17%, rgba(255, 255, 255, 1) 18%, rgba(167, 206, 232, 1) 18%, rgba(167, 206, 232, 1) 21%, rgba(255, 255, 255, 1) 21%, rgba(255, 255, 255, 1) 22%, rgba(167, 206, 232, 1) 22%, rgba(167, 206, 232, 1) 38%, rgba(255, 255, 255, 1) 39%, rgba(255, 255, 255, 1) 45%, rgba(167, 206, 232, 1) 45%, rgba(167, 206, 232, 1) 60%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 1) 67%, rgba(167, 206, 232, 1) 67%, rgba(167, 206, 232, 1) 71%, rgba(255, 255, 255, 1) 71%, rgba(255, 255, 255, 1) 72%, rgba(167, 206, 232, 1) 72%, rgba(167, 206, 232, 1) 86%, rgba(255, 255, 255, 1) 86%, rgba(255, 255, 255, 1) 88%, rgba(167, 206, 232, 1) 88%, rgba(167, 206, 232, 1) 100%);
     }
 }
