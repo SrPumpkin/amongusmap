@@ -42,10 +42,10 @@ export default function CharMarks({char, round}: Props) {
         currentChar = c
     })
 
-    const curTexture = currentChar.killed ? "K" + char.color : char.color
     const curOpacity = currentChar.exile ? 0.5 : 1.0
 
-    const charTexture = useLoader(TextureLoader, `./src/svg/chars/${curTexture}.svg`)
+    const charTexture = useLoader(TextureLoader, `./src/svg/chars/${char.color}.svg`)
+    const killedTexture = useLoader(TextureLoader, `./src/svg/chars/K${char.color}.svg`)
     const mapSize = {
         width: charTexture.source.data.width,
         height: charTexture.source.data.height,
@@ -54,10 +54,17 @@ export default function CharMarks({char, round}: Props) {
 
     return(
         <>
-            <mesh position={[currentChar.onMap.pos.x, -currentChar.onMap.pos.y, currentChar.onMap.pos.z]}>
-                <planeGeometry args={[177 * mapSize.scale, 150 * mapSize.scale]}/>
-                <meshBasicMaterial map={charTexture} side={DoubleSide} opacity={curOpacity} transparent={true}/>
-            </mesh>
+            <group position={[currentChar.onMap.pos.x, -currentChar.onMap.pos.y, currentChar.onMap.pos.z]}>
+                <mesh position={[0, 0, currentChar.killed ? -1 : 0]}>
+                    <planeGeometry args={[177 * mapSize.scale, 150 * mapSize.scale]}/>
+                    <meshBasicMaterial map={charTexture} side={DoubleSide} opacity={curOpacity} transparent={true}/>
+                </mesh>
+                <mesh position={[0, 0, currentChar.killed ? 0 : -1]}>
+                    <planeGeometry args={[177 * mapSize.scale, 150 * mapSize.scale]}/>
+                    <meshBasicMaterial map={killedTexture} side={DoubleSide} opacity={curOpacity} transparent={true}/>
+                </mesh>
+            </group>
+
         </>
     )
 }

@@ -5,6 +5,8 @@ import * as THREE from "three";
 import {Canvas, useLoader} from "@react-three/fiber";
 
 import CharMarks from "../component/CharsMarks";
+import PlaneStars from "../component/PlaneStars";
+import Engine from "../component/Engine";
 
 import {useAppDispatch, useAppSelector} from "../storage/hooks/hooks";
 import {updateChar} from "../storage/slice/roundsSlice";
@@ -18,7 +20,7 @@ export default function CanvasBlock() {
 
     const dispatch = useAppDispatch()
 
-    const mapTexture = useLoader(TextureLoader, "./src/img/the-skeld.png")
+    const mapTexture = useLoader(TextureLoader, "./src/img/test.png")
     const mapSize = {
         width: mapTexture.source.data.width,
         height: mapTexture.source.data.height,
@@ -41,12 +43,20 @@ export default function CanvasBlock() {
         dispatch(updateChosenChar(null))
     }
 
+    const adaptiveSize = globalSettings.height / 1000
+
     return(
         <Canvas style={{background: "#000000"}}>
+            <PlaneStars />
             <group>
                 <directionalLight intensity={0} position={[0, 0, 1]} color="white"/>
+                <Engine pos={{x: -71, y: 22}} texture="./src/img/sprites/smallEngine.png" size={0.35}/>
+                <Engine pos={{x: -75.2, y: 15}} texture="./src/img/sprites/smallEngine.png" size={0.35}/>
+                <Engine pos={{x: -83, y: -1}} texture="./src/img/sprites/bigEngine.png" size={0.39}/>
+                <Engine pos={{x: -75.5, y: -20}} texture="./src/img/sprites/smallEngine.png" size={0.35}/>
+                <Engine pos={{x: -71, y: -30}} texture="./src/img/sprites/smallEngine.png" size={0.35}/>
                 <mesh onClick={handleClick} >
-                    <planeGeometry args={[mapSize.width / (mapSize.width / globalSettings.width), mapSize.height / (mapSize.width / globalSettings.width)]}/>
+                    <planeGeometry args={[mapSize.width * adaptiveSize * 0.43, mapSize.height  * adaptiveSize * 0.43]}/>
                     <meshBasicMaterial map={mapTexture} side={DoubleSide} transparent={true}/>
                 </mesh>
                 {defaultChars.map((char) => <CharMarks char={char} round={currentRound} key={char.color}/>)}

@@ -217,6 +217,7 @@ svg {
             &:hover {
                 background: var(--nav-btn-hover);
                 fill: var(--nav-icon-hover);
+                border-radius: 0 0 10px 10px;
             }
         }
 
